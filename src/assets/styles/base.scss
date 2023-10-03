@@ -32,6 +32,7 @@ body {
     -webkit-text-size-adjust: 100%;
     -webkit-font-smoothing: antialiased;
     -webkit-tap-highlight-color: transparent;
+    font-family: Roboto Condensed;
 }
 
 h1, h2, h3, p {
@@ -117,6 +118,7 @@ button {
 input {
     margin: 0;
     outline: none;
+    border: none;
 }
 
 a {
@@ -202,6 +204,11 @@ a {
 	&__userInfo {
 		display: flex;
 	}
+
+    &__email {
+        margin-right: 10px;
+        color: rgb(160, 160, 160);
+    }
 
 	&__logout {
 		color: $mainColor;

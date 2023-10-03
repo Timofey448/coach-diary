@@ -4,7 +4,7 @@
 		<div class="header">
 			<img class="header__img" src="@/assets/logo.svg" alt="coach-diary">
 			<div class="header__userInfo">
-				<p class="text-gray-500 mr-4">{{ email }}</p>
+				<p class="header__email">{{ email }}</p>
 				<router-link
 					to="/sign-in"
 					@click="logout"
@@ -25,6 +25,7 @@
 <script setup lang=ts>
 import { computed } from 'vue';
 import { useStore } from 'vuex';
+import { ActionType } from '../../store/modules/auth/actions'
 
 
 const store = useStore();
@@ -33,7 +34,7 @@ const name = computed<string>(() => store.state.auth.name);
 
 
 function logout() {
-	store.dispatch('signOut');
+	store.dispatch(ActionType.SIGN_OUT);
 }
 </script>
 

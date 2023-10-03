@@ -104,6 +104,7 @@ import { ref, reactive, computed } from 'vue';
 import { useStore } from 'vuex';
 import useValidate from '@vuelidate/core'
 import { helpers, minLength, maxLength, email, sameAs, required } from '@vuelidate/validators';
+import { ActionType } from '../../store/modules/auth/actions';
 
 
 const store = useStore();
@@ -141,15 +142,14 @@ const EmailErrorFromBack = ref<string>('');
 const ErrorFromBack = ref<string>('');
 
 function handleSubmit() {
-  	store.dispatch('signUp', fields);
+  store.dispatch(ActionType.SIGN_UP, fields);
 }
 </script>
 
 <style lang="scss">
 .authPage {
 	&__logo {
-		height: 320px;
-		width: 320px;
+		width: 200px;
 	}
 
 	&__form {
@@ -173,7 +173,7 @@ function handleSubmit() {
 
 .form {
 	&__input {
-		margin-bottom: 24px;
+		margin-bottom: 16px;
 	}
 
 	&__btn {

@@ -73,7 +73,7 @@ const props = withDefaults(
 		font-size: 16px;
 		line-height: 24px;
 		width: 100%;
-		height: 64px;
+		height: 48px;
 		background-color: $inputBgColor;
 		border-top: 1px solid rgba(0, 180, 185, 0.4);
 		transition: all 0.3s ease-in;
