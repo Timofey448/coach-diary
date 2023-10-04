@@ -1,0 +1,52 @@
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    margin: 0;
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: $textColor;
+    font-family: Roboto Condensed;
+}
+
+h1, h2, h3, p {
+    margin: 0;
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+ul, ol {
+    padding: 0;
+    margin: 0;
+}
+
+button {
+    padding: 0;
+    border: none;
+}
+
+input {
+    margin: 0;
+    outline: none;
+}
+
+a {
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.no-scroll {
+    overflow: hidden;
+}
+
+@import './animations.scss';

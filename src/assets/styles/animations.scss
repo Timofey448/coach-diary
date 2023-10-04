@@ -1,0 +1,22 @@
+.list-enter-from,
+.list-leave-to {
+    opacity: 0;
+}
+
+.list-enter-to,
+.list-leave-from {
+    opacity: 1;
+}
+
+.list-enter-active,
+.list-leave-active {
+    transition: all 0.3s ease-out;
+}
+
+.route-enter-from, .route-leave-to {
+    opacity: 0;
+}
+
+.route-enter-active, .route-leave-active {
+    transition: all 0.3s ease-in;
+}

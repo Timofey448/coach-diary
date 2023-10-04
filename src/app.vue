@@ -1,21 +1,28 @@
 <template>
-  <router-view></router-view>
+  	<router-view v-slot="{ Component }">
+        <transition name="route" mode="out-in">
+            <component :is=Component></component>
+        </transition>
+    </router-view>
 </template>
 
-<script lang="js">
-import {defineComponent} from 'vue'
+<script setup lang="ts">
+import { onMounted } from 'vue';
+import { useStore } from 'vuex';
+import { ActionType } from './store/modules/auth/actions'
 
-export default defineComponent({
-  name: 'App',
-  components: {},
-  mounted() {
+
+const store = useStore();
+
+onMounted(() => {
     let currentUserEmail = localStorage.getItem("currentUser");
 
-    if (currentUserEmail != null) {
-      this.$store.dispatch("signIn", {email: currentUserEmail});
-    };   
-  },
+    if (currentUserEmail != '') {
+      	store.dispatch(ActionType.SIGN_IN, { email: currentUserEmail });
+    }
 })
 </script>
 
-<style></style>
+<style lang="scss">
+@import '@/assets/styles/base.scss';
+</style>
