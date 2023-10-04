@@ -10,28 +10,12 @@ html {
     scroll-behavior: smooth;
 }
 
-* {
-    scrollbar-width: thin;
-    scrollbar-color: rgba(255, 255, 255, 0.6) rgba(255, 255, 255, 0.2);
-    -ms-scrollbar-highlight-color: rgba(255, 255, 255, 0.2);
-    -ms-scrollbar-face-color: rgba(255, 255, 255, 0.6);
-    -ms-scrollbar-arrow-color: rgba(255, 255, 255, 0.2);
-    scrollbar-highlight-color: rgba(232, 13, 13, 0.2);
-    scrollbar-face-color: rgba(255, 255, 255, 0.6);
-    scrollbar-arrow-color: rgba(255, 255, 255, 0.2);
-}
-
 body {
     margin: 0;
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
     color: $textColor;
-    text-rendering: optimizeLegibility;
-    text-decoration-skip: objects;
-    -webkit-text-size-adjust: 100%;
-    -webkit-font-smoothing: antialiased;
-    -webkit-tap-highlight-color: transparent;
     font-family: Roboto Condensed;
 }
 
@@ -46,70 +30,6 @@ ul, ol {
     margin: 0;
 }
 
-h1, h2, h3 {
-  font-weight: 700;
-
-    @media (max-width: 1440px) {
-        font-size: 48px;
-        line-height: 60px;
-    }
-
-    @media (max-width: 768px) {
-        font-size: 40px;
-        line-height: 52px;
-    }
-}
-
-h1 {
-    font-size: 64px;
-    line-height: 78px;
-
-    @media (max-width: 1440px) {
-        font-size: 48px;
-        line-height: 60px;
-    }
-  
-    @media (max-width: 1196px) {
-        font-size: 64px;
-        line-height: 78px;
-    }
-
-    @media (max-width: 996px) {
-        font-size: 48px;
-        line-height: 60px;
-    }
-
-    @media (max-width: 768px) {
-        font-size: 40px;
-        line-height: 52px;
-    }
-}
-
-h2 {
-    font-size: 56px;
-    line-height: 70px;
-
-    @media (max-width: 1440px) {
-        font-size: 48px;
-        line-height: 60px;
-    }
-
-    @media (max-width: 1196px) {
-        font-size: 56px;
-        line-height: 70px;
-    }
-
-    @media (max-width: 996px) {
-        font-size: 48px;
-        line-height: 60px;
-    }
-
-    @media (max-width: 768px) {
-        font-size: 32px;
-        line-height: 42px;
-    }
-}
-
 button {
     padding: 0;
     border: none;
@@ -118,105 +38,15 @@ button {
 input {
     margin: 0;
     outline: none;
-    border: none;
 }
 
 a {
     cursor: pointer;
-    text-decoration: none;
-    color: $linkColor;
-    background-color: transparent;
-    transition: color 0.3s, text-decoration-color 0.3s;
-    text-decoration: underline;
-    text-decoration-skip-ink: none;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 1px;
-
-    &:hover {
-        text-decoration-color: $colorTransparent;
-    }
-}
-
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 1392px;
-    width: 100%;
-    margin: 0 auto;
-    padding-left: 64px;
-    padding-right: 64px;
-
-    @media (max-width: 1440px) {
-        max-width: 1184px;
-    }
-
-    @media (max-width: 1196px) {
-        padding-left: 64px;
-        padding-right: 64px;
-        max-width: 1068px;
-    }
-
-    @media (max-width: 996px) {
-        padding-left: 32px;
-        padding-right: 32px;
-        max-width: 932px;
-    }
-
-    @media (max-width: 768px) {
-        padding-left: 16px;
-        padding-right: 16px;
-        max-width: 736px;
-    }
+    transition: color 0.3s;
 }
 
 .no-scroll {
     overflow: hidden;
-}
-
-.form {
-    padding: 32px 64px 32px 64px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
-    max-width: 600px;
-    border-top: 8px solid $mainColor;
-    background-color: #fff;
-}
-
-.page {
-    height: 100vh;
-    width: 100vw;
-}
-
-.header {
-	padding-right: 16px;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-
-	&__img {
-		width: 60px;
-		height: 60px;
-	}
-
-	&__userInfo {
-		display: flex;
-	}
-
-    &__email {
-        margin-right: 10px;
-        color: rgb(160, 160, 160);
-    }
-
-	&__logout {
-		color: $mainColor;
-
-		&:hover {
-			color: $mainColorHovered;
-		}
-	}
 }
 
 @import './animations.scss';

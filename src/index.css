@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* @layer components {
+  .required-field {
+    @apply after:content-['*'] after:text-pink-400 text-sm;
+  }
+} */

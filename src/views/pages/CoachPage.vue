@@ -1,51 +1,54 @@
 <template>
-	<div class="userPage page">
-		<div class="header">
-			<img class="header__img" src="@/assets/logo.svg" alt="coach-diary">
-			<div class="header__userInfo">
-				<p class="header__email">{{ email }}</p>
+	<div class="text-gray-800">
+		<div class="p-2 flex justify-between">
+			<img class="w-10" src="@/assets/logo.svg" alt="coach-diary">
+			<div class="flex">
+				<p class="mr-2 text-gray-400">{{ email }}</p>
 				<router-link
 					to="/sign-in"
 					@click="logout"
-					class="header__logout"
+					class="hover:text-green-400"
 				>
 					Logout
 				</router-link>
-			</div>      
+			</div>
 		</div>
 
-		<div class="flex-col">
-			<p>Welcome to CoachDiary, {{ name }}!</p>
-			<p>list of students</p>
+		<div class="flex flex-col container mx-auto items-start bg-white rounded-sm py-6 px-6 shadow-md w-3/4">
+			<p class="text-2xl text-gray-700 font-bold mb-6">Welcome to CoachDiary, {{ name }}!</p>
+			<p class="text-sm font-medium text-gray-500 mb-4">list of students</p>
 
-			<div class="userPage__content">
-				<table class="table" v-if="students.length !== 0">
-					<thead>
+			<div>
+				<table class="table-auto w-full mb-4" v-if="students.length !== 0">
+					<thead class="text-xs uppercase text-gray-500">
 						<tr>
-						<th>email</th>
-						<th>firstname</th>
-						<th>lastname</th>
-						<th>status</th>
+						<th class="p-2 text-left">email</th>
+						<th class="p-2 text-left">firstname</th>
+						<th class="p-2 text-left">lastname</th>
+						<th class="p-2 text-left">status</th>
 						</tr>
 					</thead>
 
-					<tbody>
-						<tr v-for="student in students">
-							<td>{{ student.email }}</td>
-							<td>{{ student.firstName }}</td>
-							<td>{{ student.lastName }}</td>
-							<td>{{ student.status }}</td>
+					<tbody class="text-sm divide-y divide-gray-200">
+						<tr v-for="student in students" :key="student.email">
+							<td class="p-2">{{ student.email }}</td>
+							<td class="p-2">{{ student.firstName }}</td>
+							<td class="p-2">{{ student.lastName }}</td>
+							<td class="p-2">{{ student.status }}</td>
 						</tr>
 					</tbody>
 				</table>
 
-				<div class="flex-row">
+				<div class="flex justify-center">
 					<input
 						type="text"
 						placeholder="student email"
 						v-model="inputEmail"
+						class="mr-2 px-3 py-2 bg-white border border-gray-300 rounded-md text-sm shadow-sm placeholder-gray-300
+            focus:outline-none focus:border-sky-400
+            disabled:bg-gray-50 disabled:text-gray-500 disabled:border-gray-200 disabled:shadow-none"
 					/>
-					<Button @click="addNewStudent">
+					<Button @click="addNewStudent" class="px-4">
 						Add your student
 					</Button>
 				</div>
@@ -73,8 +76,6 @@ function logout() {
 	store.dispatch('signOut');
 }
 
-
-
 function addNewStudent() {}
 
 onMounted(() => {
@@ -82,28 +83,3 @@ onMounted(() => {
 	store.dispatch(ActionType.ADD_STUDENT, jsonStudents);
 });
 </script>
-
-<style lang="scss">
-.table {
-	max-width: 500px;
-	width: 500px;
-	margin-bottom: 12px;
-
-	& th {
-		text-align: left;
-	}
-}
-
-.flex-col {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-}
-
-.flex-row {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-}
-</style>

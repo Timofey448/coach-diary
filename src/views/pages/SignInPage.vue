@@ -1,48 +1,58 @@
 <template>
-  	<div class="authPage page">
-		<div class="container">
-			<img
-				class="authPage__logo"
-				src="/src/assets/logo.svg"
-				alt="coach-diary"
-			>
+	<div class="flex flex-col items-center h-screen">
+		<img class="w-40 md:w-80" src="/src/assets/logo.svg" alt="coach-diary" />
 
-			<form class="authPage__form form" @submit.prevent="handleSubmit">
-				<Input
-					type="text"
-					title="Email"
-					name="email"
-					placeholder="Enter your email adress"
-					class="form__input"
-					:class="{'withError': v.email.$errors.length}"
-					:errors="v.email.$errors"
-					v-model:value="v.email.$model"
-					required
-				/>
+		<form
+			class="flex flex-col bg-white py-6 px-6 font-medium w-96"
+			@submit.prevent="handleSubmit"
+		>
+			<FormInput
+				type="text"
+				title="Email"
+				name="email"
+				class="mb-4"
+				placeholder="Enter your email adress"
+				:errors="v.email.$errors"
+				v-model:value="v.email.$model"
+				required
+				@input='onInput'
+			/>
 
-				<Input
-					type="password"
-					name="password"
-					title="Password"
-					placeholder="Enter your password"
-					class="form__input"
-					:class="{'withError': v.password.$errors.length}"
-					:errors="v.password.$errors"
-					v-model:value="v.password.$model"
-					required
-				/>
+			<FormInput
+				type="password"
+				name="password"
+				title="Password"
+				placeholder="Enter your password"
+				class="mb-4"
+				:errors="v.password.$errors"
+				v-model:value="v.password.$model"
+				required
+				@input='onInput'
+			/>
 
-				<Button class="form__btn">Create your account</Button>
+			<Button class="mt-2">Sign in</Button>
 
-				<span class="form__errorMsg">{{ authError }}</span>
-			</form>
-		</div>
-  	</div> 
+			<span
+				class="mt-2 text-pink-400">
+				{{ authError }}
+			</span>
+		</form>
+
+		<div class="flex text-sm">
+      <p class="mr-2 text-gray-400">Don`t have an account?</p>
+			<router-link
+        to="/sign-up"
+        class="mr-1 text-gray-600 text-green-300 hover:text-green-400"
+      >
+        Create an account
+      </router-link>
+    </div>
+	</div> 
 </template>
 
 <script setup lang="ts">
 import { login } from "@/api/auth";
-import Input from '@/components/UI/Input.vue';
+import FormInput from '@/components/UI/FormInput.vue';
 import Button from '@/components/UI/Button.vue';
 import { ref, reactive, computed } from 'vue';
 import { useStore } from 'vuex';
@@ -63,16 +73,16 @@ const fields: Fields = reactive({
 
 const rules = computed(() => ({
 	name: {
-		required: helpers.withMessage(`Введите свое имя`, required)
+		required: helpers.withMessage(`Enter your name`, required)
 	},
 	email: {
-		email: helpers.withMessage(`Вы ввели неверный email`, email),
-		required: helpers.withMessage(`Введите email`, required)
+		email: helpers.withMessage(`You entered an invalid email`, email),
+		required: helpers.withMessage(`Enter your email`, required)
 	},
 	password: {
-		minLength: helpers.withMessage(`Введите не менее 8 символов`, minLength(8)),
-		maxLength: helpers.withMessage(`Введите не более 24 символов`, maxLength(24)),
-		required: helpers.withMessage(`Введите пароль`, required)
+		minLength: helpers.withMessage(`Enter at least 8 characters`, minLength(8)),
+		maxLength: helpers.withMessage(`Enter no more then 24 characters`, maxLength(24)),
+		required: helpers.withMessage(`Enter your password please`, required)
 	},
 }));
 
@@ -84,6 +94,10 @@ function handleSubmit() {
 		authError.value = "Authentication Error"
 		return;
 	}
-  	store.dispatch(ActionType.SIGN_IN, fields);
+  store.dispatch(ActionType.SIGN_IN, fields);
+}
+
+function onInput() {
+	authError.value = '';
 }
 </script>

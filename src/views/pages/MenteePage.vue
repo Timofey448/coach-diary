@@ -1,24 +1,22 @@
 <template>
-	<div class="userPage page">
-
-		<div class="header">
-			<img class="header__img" src="@/assets/logo.svg" alt="coach-diary">
-			<div class="header__userInfo">
-				<p class="header__email">{{ email }}</p>
+	<div class="text-gray-800">
+		<div class="p-2 flex justify-between">
+			<img class="w-10" src="@/assets/logo.svg" alt="coach-diary">
+			<div class="flex">
+				<p class="mr-2 text-gray-400">{{ email }}</p>
 				<router-link
 					to="/sign-in"
 					@click="logout"
-					class="header__logout"
+					class="hover:text-green-400"
 				>
 					Logout
 				</router-link>
 			</div>      
 		</div>
 
-		<div class="userPage__content">
-			<p class="msg">Welcome to CoachDiary, {{ name }}!</p>
+		<div class="flex flex-col container mx-auto items-start bg-white rounded-sm py-6 px-6 shadow-md w-3/4">
+			<p class="text-2xl text-gray-700 font-bold mb-6">Welcome to CoachDiary, {{ name }}!</p>
 		</div>
-		
 	</div>
 </template>
 
@@ -37,20 +35,3 @@ function logout() {
 	store.dispatch(ActionType.SIGN_OUT);
 }
 </script>
-
-<style lang="scss">
-.userPage {
-	&__content {
-		margin-top: 16px;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-	}
-}
-
-.msg {
-	font-weight: 500;
-	font-size: 24px;
-}
-</style>
