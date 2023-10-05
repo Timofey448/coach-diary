@@ -1,5 +1,5 @@
 <template>
-	<div class="flex items-center justify-center h-screen w-screen">
+	<div class="flex-center h-screen w-screen">
 		<router-link to="/sign-up">
 			<img
 				class="h-80 w-80"

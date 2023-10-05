@@ -137,10 +137,6 @@ const rules = computed(() => ({
 }));
 
 const v = useValidate(rules, fields);
-// const isFormCorrect = ref<boolean>(false);
-// const isRequestActive = ref<boolean>(false);
-// const EmailErrorFromBack = ref<string>("");
-// const ErrorFromBack = ref<string>("");
 
 function handleSubmit() {
   v.value.$validate();

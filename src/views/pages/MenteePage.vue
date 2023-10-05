@@ -30,7 +30,6 @@ const store = useStore();
 const email = computed<string>(() => store.state.auth.email);
 const name = computed<string>(() => store.state.auth.name);
 
-
 function logout() {
 	store.dispatch(ActionType.SIGN_OUT);
 }

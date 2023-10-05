@@ -2,11 +2,10 @@ const colors = require('tailwindcss/colors')
 
 module.exports = {
   content: [
-    // Example content paths...
     './public/**/*.html',
     './src/**/*.{js,jsx,ts,tsx,vue,d.ts}',
   ],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: false,
   theme: {
     extend: {
       colors: {
@@ -17,6 +16,9 @@ module.exports = {
         green: colors.emerald,
       },
     },
+    fontFamily: {
+      RobotoCondensed: ['Roboto Condensed, system-ui, sans-serif']
+    }
   },
   variants: {
     extend: {},

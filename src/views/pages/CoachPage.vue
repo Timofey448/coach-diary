@@ -44,9 +44,7 @@
 						type="text"
 						placeholder="student email"
 						v-model="inputEmail"
-						class="mr-2 px-3 py-2 bg-white border border-gray-300 rounded-md text-sm shadow-sm placeholder-gray-300
-            focus:outline-none focus:border-sky-400
-            disabled:bg-gray-50 disabled:text-gray-500 disabled:border-gray-200 disabled:shadow-none"
+						class="input mr-2"
 					/>
 					<Button @click="addNewStudent" class="px-4">
 						Add your student
@@ -76,7 +74,9 @@ function logout() {
 	store.dispatch('signOut');
 }
 
-function addNewStudent() {}
+function addNewStudent() {
+
+}
 
 onMounted(() => {
 	// students = jsonStudents;

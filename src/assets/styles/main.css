@@ -1,0 +1,11 @@
+/* Base imports */
+@import 'tailwindcss/base';
+@import 'base/base';
+
+/* Components imports */
+@import 'tailwindcss/components';
+@import 'components/button';
+@import 'components/input';
+
+/* Utility imports */
+@import 'tailwindcss/utilities';

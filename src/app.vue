@@ -1,7 +1,7 @@
 <template>
   	<router-view v-slot="{ Component }">
         <transition name="route" mode="out-in">
-            <component :is=Component></component>
+            <component :is=Component class="text-gray-500 font-RobotoCondensed"></component>
         </transition>
     </router-view>
 </template>
@@ -17,12 +17,8 @@ const store = useStore();
 onMounted(() => {
     let currentUserEmail = localStorage.getItem("currentUser");
 
-    if (currentUserEmail != '') {
+    if (currentUserEmail !== null) {
       	store.dispatch(ActionType.SIGN_IN, { email: currentUserEmail });
     }
 })
 </script>
-
-<style lang="scss">
-@import '@/assets/styles/base.scss';
-</style>

@@ -13,18 +13,8 @@ export default defineConfig({
     proxy: {
       "/api": {
         target: "http://51.250.105.185:8000",
-        // changeOrigin: true,
-        // secure: false,
-        // rewrite: (path) => path.replace(/^\/api/, ""),
       },
     },
-  },
-  css: {
-    preprocessorOptions: {
-      scss: {
-        additionalData: '@import "@/assets/styles/global/_global.scss";'
-      }
-    }
   },
   plugins: [vue()]
 })

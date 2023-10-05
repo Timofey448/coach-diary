@@ -1,0 +1,5 @@
+@layer components {
+  .btn {
+    @apply p-2 font-medium rounded-md bg-green-400 text-white hover:bg-green-500 transition ease-in;
+  }
+}

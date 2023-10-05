@@ -32,17 +32,16 @@
 
 			<Button class="mt-2">Sign in</Button>
 
-			<span
-				class="mt-2 text-pink-400">
+			<span class="mt-2 error">
 				{{ authError }}
 			</span>
 		</form>
 
 		<div class="flex text-sm">
-      <p class="mr-2 text-gray-400">Don`t have an account?</p>
+      <p class="mr-2">Don`t have an account?</p>
 			<router-link
         to="/sign-up"
-        class="mr-1 text-gray-600 text-green-300 hover:text-green-400"
+        class="mr-1 text-green-300 hover:text-green-400"
       >
         Create an account
       </router-link>
