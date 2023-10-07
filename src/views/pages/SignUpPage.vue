@@ -3,7 +3,7 @@
     <img class="w-40 md:w-80" src="/src/assets/logo.svg" alt="coach-diary" />
 
     <form
-      class="flex flex-col bg-white py-6 px-6 font-medium w-96"
+      class="flex flex-col bg-white font-medium w-full sm:w-96"
       @submit.prevent="handleSubmit"
     >
       <FormInput
@@ -77,7 +77,7 @@
         </div>
       </div>
 
-      <Button class="mt-2">Create your account</Button>
+      <Button class="my-3">Create your account</Button>
     </form>
 
     <div class="flex text-sm">

@@ -18,7 +18,7 @@ module.exports = {
     },
     fontFamily: {
       RobotoCondensed: ['Roboto Condensed, system-ui, sans-serif']
-    }
+    },
   },
   variants: {
     extend: {},

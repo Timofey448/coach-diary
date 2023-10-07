@@ -3,7 +3,7 @@
 		<img class="w-40 md:w-80" src="/src/assets/logo.svg" alt="coach-diary" />
 
 		<form
-			class="flex flex-col bg-white py-6 px-6 font-medium w-96"
+			class="flex flex-col bg-white font-medium w-full sm:w-96"
 			@submit.prevent="handleSubmit"
 		>
 			<FormInput
@@ -30,7 +30,7 @@
 				@input='onInput'
 			/>
 
-			<Button class="mt-2">Sign in</Button>
+			<Button class="my-3">Sign in</Button>
 
 			<span class="mt-2 error">
 				{{ authError }}

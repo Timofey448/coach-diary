@@ -1,6 +1,17 @@
 @layer base {
   *, *:before, *:after {
     box-sizing: inherit;
+    scrollbar-width: thin;
+    scrollbar-color: #34d399;
+  }
+
+  *::-webkit-scrollbar {
+    height: 3px;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #a7f3d0;
+    border-radius: 5px;
   }
 
   html {
@@ -10,8 +21,8 @@
   }
 
   body {
-    font-size: 16px;
-    line-height: 24px;
+    font-size: 14px;
+    line-height: 20px;
     font-weight: 400;
   }
 
@@ -28,27 +39,51 @@
     @apply flex justify-center items-center;
   }
 
-  /* ------------ Animations ------------ */
-  .list-enter-from,
-  .list-leave-to {
-    opacity: 0;
+  .content {
+    @apply w-full max-w-screen-lg mx-auto p-6 bg-white rounded-sm shadow-md;
   }
 
-  .list-enter-to,
-  .list-leave-from {
-    opacity: 1;
+  .title {
+    @apply text-2xl text-gray-700 font-bold mb-6;
   }
 
-  .list-enter-active,
-  .list-leave-active {
-    transition: all 0.3s ease-out;
+  .table-title {
+    @apply text-sm font-medium text-gray-500 mb-4;
   }
 
-  .route-enter-from, .route-leave-to {
-    opacity: 0;
+  .thead {
+    @apply text-xs uppercase;
   }
 
-  .route-enter-active, .route-leave-active {
-    transition: all 0.3s ease-in;
+  .tbody {
+    @apply divide-y divide-gray-200;
   }
+
+  .th {
+    @apply p-2 text-left;
+  }
+}
+
+/* ------------ Animations ------------ */
+.list-enter-from,
+.list-leave-to {
+  opacity: 0;
+}
+
+.list-enter-to,
+.list-leave-from {
+  opacity: 1;
+}
+
+.list-enter-active,
+.list-leave-active {
+  transition: all 0.3s ease-out;
+}
+
+.route-enter-from, .route-leave-to {
+  opacity: 0;
+}
+
+.route-enter-active, .route-leave-active {
+  transition: all 0.3s ease-in;
 }

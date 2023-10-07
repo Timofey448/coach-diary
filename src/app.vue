@@ -1,7 +1,7 @@
 <template>
   	<router-view v-slot="{ Component }">
         <transition name="route" mode="out-in">
-            <component :is=Component class="text-gray-500 font-RobotoCondensed"></component>
+            <component :is=Component class="text-gray-500 font-RobotoCondensed px-4 box-border"></component>
         </transition>
     </router-view>
 </template>

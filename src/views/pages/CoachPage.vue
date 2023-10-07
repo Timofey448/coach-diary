@@ -1,5 +1,5 @@
 <template>
-	<div class="text-gray-800">
+	<div class="">
 		<div class="p-2 flex justify-between">
 			<img class="w-10" src="@/assets/logo.svg" alt="coach-diary">
 			<div class="flex">
@@ -14,39 +14,41 @@
 			</div>
 		</div>
 
-		<div class="flex flex-col container mx-auto items-start bg-white rounded-sm py-6 px-6 shadow-md w-3/4">
-			<p class="text-2xl text-gray-700 font-bold mb-6">Welcome to CoachDiary, {{ name }}!</p>
-			<p class="text-sm font-medium text-gray-500 mb-4">list of students</p>
+		<div class="content">
+			<p class="title">Welcome to CoachDiary, {{ name }}!</p>
+			<p class="table-title">list of students</p>
 
 			<div>
-				<table class="table-auto w-full mb-4" v-if="students.length !== 0">
-					<thead class="text-xs uppercase text-gray-500">
-						<tr>
-						<th class="p-2 text-left">email</th>
-						<th class="p-2 text-left">firstname</th>
-						<th class="p-2 text-left">lastname</th>
-						<th class="p-2 text-left">status</th>
-						</tr>
-					</thead>
+				<div class="mb-3 overflow-x-scroll">
+					<table class="table-auto w-full mb-4 overflow-x-scroll" v-if="students.length !== 0">
+						<thead class="thead">
+							<tr>
+								<th class="th">email</th>
+								<th class="th">firstname</th>
+								<th class="th">lastname</th>
+								<th class="th">status</th>
+							</tr>
+						</thead>
 
-					<tbody class="text-sm divide-y divide-gray-200">
-						<tr v-for="student in students" :key="student.email">
-							<td class="p-2">{{ student.email }}</td>
-							<td class="p-2">{{ student.firstName }}</td>
-							<td class="p-2">{{ student.lastName }}</td>
-							<td class="p-2">{{ student.status }}</td>
-						</tr>
-					</tbody>
-				</table>
+						<tbody class="tbody">
+							<tr v-for="student in students" :key="student.email">
+								<td class="p-2">{{ student.email }}</td>
+								<td class="p-2">{{ student.firstName }}</td>
+								<td class="p-2">{{ student.lastName }}</td>
+								<td class="p-2">{{ student.status }}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
 
-				<div class="flex justify-center">
+				<div class="sm:flex-row flex-col">
 					<input
 						type="text"
 						placeholder="student email"
 						v-model="inputEmail"
-						class="input mr-2"
+						class="input w-full sm:w-auto sm:mr-2"
 					/>
-					<Button @click="addNewStudent" class="px-4">
+					<Button @click="addNewStudent" class="mt-3 px-4 w-full sm:w-auto">
 						Add your student
 					</Button>
 				</div>
