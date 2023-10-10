@@ -7,58 +7,58 @@
       @submit.prevent="handleSubmit"
     >
       <FormInput
+        v-model:value="v.name.$model"
         type="text"
         title="Name"
         name="username"
         placeholder="Enter your name"
         class="mb-4"
         :errors="v.name.$errors"
-        v-model:value="v.name.$model"
         required
       />
 
       <FormInput
+        v-model:value="v.email.$model"
         type="text"
         title="Email"
         name="email"
         placeholder="Enter your email adress"
         class="mb-4"
         :errors="v.email.$errors"
-        v-model:value="v.email.$model"
         required
       />
 
       <FormInput
+        v-model:value="v.password.$model"
         type="password"
         name="password"
         title="Password"
         placeholder="Enter your password"
         class="mb-4"
         :errors="v.password.$errors"
-        v-model:value="v.password.$model"
         required
       />
 
       <FormInput
+        v-model:value="v.confirmedPassword.$model"
         type="password"
         name="confirm"
         title="Confirm password"
         placeholder="Confirm your password"
         class="mb-4"
         :errors="v.confirmedPassword.$errors"
-        v-model:value="v.confirmedPassword.$model"
         required
       />
 
       <div class="flex items-center gap-4">
         <div>
           <input
+            id="coach"
+            v-model="fields.role"
             title="coach"
             type="radio"
-            id="coach"
             name="radio"
             value="coach"
-            v-model="fields.role"
             
           />
           <label for="coach" class="text-gray-500">Coach</label>
@@ -66,12 +66,12 @@
 
         <div>
           <input
+            id="mentee"
+            v-model="fields.role"
             title="mentee"
             type="radio"
-            id="mentee"
             name="radio"
             value="student"
-            v-model="fields.role"
           />
           <label for="mentee" class="text-gray-500">Mentee</label>
         </div>

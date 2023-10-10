@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import { ROUTE_NAMES } from '@/constants';
 
 
-const HomePage = () => import('@/views/pages/home.vue');
+const HomePage = () => import('@/views/pages/HomePage.vue');
 const SignUpPage = () => import('@/views/pages/SignUpPage.vue');
 const SignInPage = () => import('@/views/pages/SignInPage.vue');
 const CoachPage = () => import('@/views/pages/CoachPage.vue');
